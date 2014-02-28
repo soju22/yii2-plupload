@@ -1,0 +1,19 @@
+{
+	"name": "soju/yii2-plupload",
+	"description": "Yii2 Plupload extension, provides useful widgets.",
+	"keywords": ["yii2", "plupload", "extension", "widget"],
+	"homepage": "https://github.com/soju22/yii2-plupload",
+	"type": "yii2-extension",
+	"authors": [
+		{
+			"name": "soju",
+			"email": "soju22@gmail.com"
+		}
+	],
+	"require": {
+		"yiisoft/yii2": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {"soju\\": ""}
+	}
+}

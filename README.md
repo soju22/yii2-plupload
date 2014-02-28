@@ -1,4 +1,6 @@
 yii2-plupload
 =============
 
-Yii2 Plupload extension.
+Yii2 Plupload extension, provides useful widgets.
+
+WIP...
