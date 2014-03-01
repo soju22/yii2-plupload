@@ -58,6 +58,11 @@ class UIWidget extends \yii\base\Widget
 
 		// register js
 		$view->registerJs("
+
+			// https://github.com/moxiecode/plupload/issues/632
+			var btn = $.fn.button.noConflict();
+			$.fn.btn = btn;
+
 			$('#{$this->getId()}').plupload(".Json::encode($this->settings).");
 		");
 	}

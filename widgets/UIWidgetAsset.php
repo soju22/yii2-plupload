@@ -23,7 +23,7 @@ class UIWidgetAsset extends AssetBundle
 
 	public $js = [
 		'plupload/jquery.ui.plupload/jquery.ui.plupload.js',
-		'main.js',
+		//'main.js',
 	];
 
 	public $depends = [
