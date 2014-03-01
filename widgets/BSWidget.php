@@ -32,6 +32,8 @@ class BSWidget extends \yii\base\Widget
 		$view = $this->getView();
 		CoreWidgetAsset::register($view);
 
+		// TODO
+		
 		$view->registerJs("
 		");
 	}
