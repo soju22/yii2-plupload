@@ -11,7 +11,7 @@ use yii\web\AssetBundle;
  */
 class CoreWidgetAsset extends AssetBundle
 {
-	public $sourcePath = '@plupload/assets';
+	public $sourcePath = '@vendor/soju/yii2plupload/assets';
 
 	public $publishOptions = [
 		//'forceCopy'=> YII_DEBUG,
