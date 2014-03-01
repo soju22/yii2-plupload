@@ -18,6 +18,10 @@ class UIWidget extends \yii\base\Widget
 	 */
 	public $options = [];
 	/**
+	 * @var string widget container content, should be a fallback message.
+	 */
+	public $content = 'Your browser doesn\'t have Flash, Silverlight or HTML5 support';
+	/**
 	 * @var array settings
 	 * @link http://www.plupload.com/docs/UI.Plupload
 	 */
@@ -43,8 +47,7 @@ class UIWidget extends \yii\base\Widget
 		UIWidgetAsset::register($view);
 
 		// echo container
-		$text = Html::tag('p', 'Your browser doesn\'t have Flash, Silverlight or HTML5 support');
-		echo Html::tag('div', $text, $this->options);
+		echo Html::tag('div', $this->content, $this->options);
 
 		// plupload settings
 		$assetUrl = $view->assetBundles[UIWidgetAsset::className()]->baseUrl;
