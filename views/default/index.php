@@ -13,9 +13,13 @@ use yii\bootstrap\Button;
 </ul>
 
 <div class="plupload tab-content">
-
+	
 	<?php if ($type=='core') : ?>
 	<div class="tab-pane active" id="core">
+		<div class="bs-callout bs-callout-info">
+			<h4>Simple Core Widget</h4>
+			<p>This core widget is just a simple way to call Plupload API, example code is based on the following tutorial : <a href="http://www.plupload.com/docs/Getting-Started">Getting started</a>.</p>
+		</div>
 		<ul id="filelist"></ul>
 		<?= Button::widget([
 			'label' => 'Browse',
@@ -39,6 +43,7 @@ use yii\bootstrap\Button;
 				'runtimes'=>'flash',
 			],
 		]); ?>
+		<h2>Console</h2>
 		<pre id="console"></pre>
 		<?php $this->registerJs("
 			uploader.bind('FilesAdded', function(up, files) {

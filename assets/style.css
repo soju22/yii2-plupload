@@ -3,3 +3,28 @@
 .plupload.tab-content {
 	padding-top:10px;
 }
+
+/* bs callout */
+.bs-callout {
+    border-left: 3px solid #EEEEEE;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.bs-callout-info {
+    background-color: #F4F8FA;
+    border-color: #5BC0DE;
+}
+
+.bs-callout h4 {
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.bs-callout-info h4 {
+    color: #5BC0DE;
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
