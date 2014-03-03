@@ -51,8 +51,8 @@ class QueueWidget extends \yii\base\Widget
 
 		// plupload settings
 		$assetUrl = $view->assetBundles[QueueWidgetAsset::className()]->baseUrl;
-		$this->settings['flash_swf_url'] = $assetUrl.'/Moxie.swf';
-		$this->settings['silverlight_xap_url'] = $assetUrl.'/Moxie.xap';
+		$this->settings['flash_swf_url'] = $assetUrl.'/plupload/Moxie.swf';
+		$this->settings['silverlight_xap_url'] = $assetUrl.'/plupload/Moxie.xap';
 		
 		// add csrf token
 		$this->settings['multipart_params'] = [

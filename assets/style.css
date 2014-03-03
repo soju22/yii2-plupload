@@ -1,1 +1,5 @@
 .plupload_filelist_footer { box-sizing:content-box; }
+
+.plupload.tab-content {
+	padding-top:10px;
+}

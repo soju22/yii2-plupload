@@ -18,6 +18,7 @@ class CoreWidgetAsset extends AssetBundle
 	];
 
 	public $css = [
+		'style.css',
 	];
 
 	public $js = [
@@ -27,5 +28,6 @@ class CoreWidgetAsset extends AssetBundle
 	];
 
 	public $depends = [
+		'yii\web\JqueryAsset',
 	];
 }

@@ -19,7 +19,6 @@ class QueueWidgetAsset extends AssetBundle
 
 	public $css = [
 		'plupload/jquery.plupload.queue/css/jquery.plupload.queue.css',
-		'style.css',
 	];
 
 	public $js = [

@@ -2,8 +2,10 @@
 
 namespace soju\yii2plupload\widgets;
 
+use Yii;
 use yii\helpers\Html;
 use yii\bootstrap\Button;
+use yii\helpers\Json;
 
 /**
  * Plupload core widget.
@@ -13,18 +15,26 @@ use yii\bootstrap\Button;
 class CoreWidget extends \yii\base\Widget
 {
 	/**
-	 * @var array the HTML attributes for the widget container tag.
+	 * @var string uploader var name
 	 */
-	public $options = [];
+	public $varName;
 	/**
-	 * @var string upload url
+	 * @var array settings
+	 * http://www.plupload.com/docs/Options
 	 */
-	public $uploadUrl;
+	public $settings = [];
 
 	public function init()
 	{
 		parent::init();
-		$this->uploadUrl = Html::url($this->uploadUrl);
+
+		if (!empty($this->varName)) $this->setId($this->varName);
+		else $this->varName = $this->getId();
+		
+		if (!isset($this->settings['url']))
+			$this->settings['url'] = '';
+
+		$this->settings['url'] = Html::url($this->settings['url']);
 	}
 
 	public function run()
@@ -32,32 +42,19 @@ class CoreWidget extends \yii\base\Widget
 		$view = $this->getView();
 		CoreWidgetAsset::register($view);
 
-		echo Button::widget([
-			'label' => 'Browse',
-			'options' => [
-				'id'=>'browse',
-				'class' => 'btn-default'
-			],
-		]);
+		// plupload settings
+		$assetUrl = $view->assetBundles[CoreWidgetAsset::className()]->baseUrl;
+		$this->settings['flash_swf_url'] = $assetUrl.'/plupload/Moxie.swf';
+		$this->settings['silverlight_xap_url'] = $assetUrl.'/plupload/Moxie.xap';
 
-		echo Button::widget([
-			'label' => 'Start Upload',
-			'options' => [
-				'id'=>'start-upload',
-				'class' => 'btn-default'
-			],
-		]);
-
-		echo Html::ul([], [
-			'id'=>'filelist',
-		]);
+		// add csrf token
+		$this->settings['multipart_params'] = [
+			Yii::$app->request->csrfParam => Yii::$app->request->csrfToken,
+		];
 
 		$view->registerJs("
-			var uploader = new plupload.Uploader({
-				browse_button: 'browse',
-				url: '{$this->uploadUrl}'
-			});
-			uploader.init();
+			var {$this->varName} = new plupload.Uploader(".Json::encode($this->settings).");
+			{$this->varName}.init();
 		");
 	}
 }

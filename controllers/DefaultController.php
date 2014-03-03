@@ -14,9 +14,11 @@ use yii\helpers\Json;
  */
 class DefaultController extends Controller
 {
-	public function actionIndex()
+	public function actionIndex($type='core')
 	{
-		return $this->render('index');
+		return $this->render('index', [
+			'type'=>$type,
+		]);
 	}
 	
 	/**
