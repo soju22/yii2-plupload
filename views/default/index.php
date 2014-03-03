@@ -18,7 +18,7 @@ use yii\bootstrap\Button;
 	<div class="tab-pane active" id="core">
 		<div class="bs-callout bs-callout-info">
 			<h4>Simple Core Widget</h4>
-			<p>This core widget is just a simple way to call Plupload API, example code is based on the following tutorial : <a href="http://www.plupload.com/docs/Getting-Started">Getting started</a>.</p>
+			<p>This core widget is just a simple way to create a pupload uploader object, example code is based on the following tutorial : <a href="http://www.plupload.com/docs/Getting-Started">Getting started</a>.</p>
 		</div>
 		<ul id="filelist"></ul>
 		<?= Button::widget([
