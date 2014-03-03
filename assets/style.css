@@ -4,6 +4,17 @@
 	padding-top:10px;
 }
 
+.plupload .code {
+	background: #fafafa;
+	border-left: #eee 5px solid;
+	padding: 5px 10px;
+	overflow: auto;
+}
+
+.plupload .code code {
+	background: transparent;
+}
+
 /* bs callout */
 .bs-callout {
     border-left: 3px solid #EEEEEE;

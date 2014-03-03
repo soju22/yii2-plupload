@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap\Button;
 
 /**
  * @var \yii\web\View $this
@@ -13,88 +12,53 @@ use yii\bootstrap\Button;
 </ul>
 
 <div class="plupload tab-content">
-	
+
 	<?php if ($type=='core') : ?>
 	<div class="tab-pane active" id="core">
-		<div class="bs-callout bs-callout-info">
-			<h4>Simple Core Widget</h4>
-			<p>This core widget is just a simple way to create a pupload uploader object, example code is based on the following tutorial : <a href="http://www.plupload.com/docs/Getting-Started">Getting started</a>.</p>
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Plupload Core Widget</h2>
+				<div class="bs-callout bs-callout-info">
+					<h4>Simple Core Widget</h4>
+					<p>This core widget is just a simple way to create a Plupload uploader object, example code is based on the following tutorial : <a href="http://www.plupload.com/docs/Getting-Started">Getting started</a>.</p>
+				</div>
+				<?= $this->render('_test-core'); ?>
+			</div>
+			<div class="col-md-6">
+				<h3>Code</h3>
+				<div class="code"><code class=""><?php highlight_file(Yii::getAlias($this->findViewFile('_test-core'))); ?></code></div>
+			</div>
 		</div>
-		<ul id="filelist"></ul>
-		<?= Button::widget([
-			'label' => 'Browse',
-			'options' => [
-				'id'=>'browse',
-				'class' => 'btn-default'
-			],
-		]) ?>
-		<?= Button::widget([
-			'label' => 'Start Upload',
-			'options' => [
-				'id'=>'start-upload',
-				'class' => 'btn-default'
-			],
-		]); ?>
-		<?= \soju\yii2plupload\widgets\CoreWidget::widget([
-			'varName'=>'uploader',
-			'settings'=>[
-				'browse_button'=>'browse',
-				'url'=>['default/upload'],
-				'runtimes'=>'flash',
-			],
-		]); ?>
-		<h2>Console</h2>
-		<pre id="console"></pre>
-		<?php $this->registerJs("
-			uploader.bind('FilesAdded', function(up, files) {
-				var html = '';
-				plupload.each(files, function(file) {
-					html += '<li id=\"' + file.id + '\">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></li>';
-				});
-				document.getElementById('filelist').innerHTML += html;
-			});
-			uploader.bind('UploadProgress', function(up, file) {
-				document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + \"%</span>\";
-			});
-			uploader.bind('Error', function(up, err) {
-				document.getElementById('console').innerHTML += \"\\nError #\" + err.code + \": \" + err.message;
-			});
-			document.getElementById('start-upload').onclick = function() {
-				uploader.start();
-			};
-		"); ?>
 	</div>
 	<?php endif; ?>
 
 	<?php if ($type=='ui') : ?>
 	<div class="tab-pane active" id="ui">
-		<?= \soju\yii2plupload\widgets\UIWidget::widget([
-			'settings'=>[
-				'url'=>['default/upload'],
-				'max_file_size' => '1mb',
-				'filters' => [ 
-					['title' => 'Image files', 'extensions' => 'jpg,gif,png'],
-					['title' => 'PDF files', 'extensions' => 'pdf'],
-					['title' => 'Zip files', 'extensions' => 'zip,avi'],
-				],
-			],
-		]); ?>
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Plupload UI Widget</h2>
+				<?= $this->render('_test-ui'); ?>
+			</div>
+			<div class="col-md-6">
+				<h3>Code</h3>
+				<div class="code"><code class=""><?php highlight_file(Yii::getAlias($this->findViewFile('_test-ui'))); ?></code></div>
+			</div>
+		</div>
 	</div>
 	<?php endif; ?>
 
 	<?php if ($type=='queue') : ?>
 	<div class="tab-pane active" id="queue">
-		<?= \soju\yii2plupload\widgets\QueueWidget::widget([
-			'settings'=>[
-				'url'=>['default/upload'],
-				'max_file_size' => '1mb',
-				'filters' => [ 
-					['title' => 'Image files', 'extensions' => 'jpg,gif,png'],
-					['title' => 'PDF files', 'extensions' => 'pdf'],
-					['title' => 'Zip files', 'extensions' => 'zip,avi'],
-				],
-			],
-		]); ?>
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Plupload Queue Widget</h2>
+				<?= $this->render('_test-queue'); ?>
+			</div>
+			<div class="col-md-6">
+				<h3>Code</h3>
+				<div class="code"><code class=""><?php highlight_file(Yii::getAlias($this->findViewFile('_test-queue'))); ?></code></div>
+			</div>
+		</div>
 	</div>
 	<?php endif; ?>
 
