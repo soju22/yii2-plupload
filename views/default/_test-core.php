@@ -25,7 +25,6 @@ use yii\bootstrap\Button;
 	'settings'=>[
 		'browse_button'=>'browse',
 		'url'=>['default/upload'],
-		'runtimes'=>'flash',
 	],
 ]); ?>
 
