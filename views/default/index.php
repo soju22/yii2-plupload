@@ -1,14 +1,14 @@
 <?php
-use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
  */
 ?>
 <ul class="nav nav-tabs">
-  <li <?= $type=='core' ? 'class="active"' : ''; ?>><a href="<?= Html::url(['default/', 'type'=>'core']); ?>">Core Widget</a></li>
-  <li <?= $type=='ui' ? 'class="active"' : ''; ?>><a href="<?= Html::url(['default/', 'type'=>'ui']); ?>">UI Widget</a></li>
-  <li <?= $type=='queue' ? 'class="active"' : ''; ?>><a href="<?= Html::url(['default/', 'type'=>'queue']); ?>">Queue Widget</a></li>
+  <li <?= $type=='core' ? 'class="active"' : ''; ?>><a href="<?= Url::to(['default/', 'type'=>'core']); ?>">Core Widget</a></li>
+  <li <?= $type=='ui' ? 'class="active"' : ''; ?>><a href="<?= Url::to(['default/', 'type'=>'ui']); ?>">UI Widget</a></li>
+  <li <?= $type=='queue' ? 'class="active"' : ''; ?>><a href="<?= Url::to(['default/', 'type'=>'queue']); ?>">Queue Widget</a></li>
 </ul>
 
 <div class="plupload tab-content">

@@ -3,7 +3,7 @@
 namespace soju\yii2plupload\widgets;
 
 use Yii;
-use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Button;
 use yii\helpers\Json;
 
@@ -34,7 +34,7 @@ class CoreWidget extends \yii\base\Widget
 		if (!isset($this->settings['url']))
 			$this->settings['url'] = '';
 
-		$this->settings['url'] = Html::url($this->settings['url']);
+		$this->settings['url'] = Url::to($this->settings['url']);
 	}
 
 	public function run()
