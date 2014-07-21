@@ -3,9 +3,10 @@
 namespace soju\yii2plupload\widgets;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\helpers\Json;
+use yii\helpers\Url;
 
 /**
  * Plupload UI widget.
@@ -56,9 +57,10 @@ class UIWidget extends \yii\base\Widget
 		$this->settings['silverlight_xap_url'] = $assetUrl.'/plupload/Moxie.xap';
 		
 		// add csrf token
-		$this->settings['multipart_params'] = [
-			Yii::$app->request->csrfParam => Yii::$app->request->csrfToken,
-		];
+		$this->settings['multipart_params'] = ArrayHelper::merge(
+			$this->settings['multipart_params'],
+			[Yii::$app->request->csrfParam => Yii::$app->request->csrfToken]
+		);
 
 		// register js
 		$view->registerJs("
